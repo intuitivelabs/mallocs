@@ -1,2 +1,2 @@
-github.com/intuitivelabs/slog v0.0.2-0.20210321224300-46645dc5b0ce h1:/t9HSsqcGXH38EoIcAkxUyzZK7LwX5O/DvDa7ZXI7/E=
-github.com/intuitivelabs/slog v0.0.2-0.20210321224300-46645dc5b0ce/go.mod h1:Ui5r7QQoGGj6/sODBbsz8VJbbylXyx86aVhbdoriIKY=
+github.com/intuitivelabs/slog v0.0.2 h1:XFDdI5gTK7t7C896D7kTdDRWXDSF1hHjAor/TITSLio=
+github.com/intuitivelabs/slog v0.0.2/go.mod h1:Ui5r7QQoGGj6/sODBbsz8VJbbylXyx86aVhbdoriIKY=
