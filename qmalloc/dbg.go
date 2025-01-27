@@ -32,7 +32,7 @@ func (qm *QMalloc) dumpStatus() {
 	if qm.options&QMDumpStatsShort != 0 {
 		return
 	}
-	Log.LLog(lev, 0, prefix, "dumping all alloc'ed fragments: %d\n")
+	Log.LLog(lev, 0, prefix, "dumping all alloc'ed fragments:\n")
 	i := 0
 	for f := qm.firstFrag; uintptr(unsafe.Pointer(f)) < uintptr(unsafe.Pointer(qm.lastFragEnd)); f = f.next() {
 		if !f.isFree() {
@@ -41,14 +41,14 @@ func (qm *QMalloc) dumpStatus() {
 				i, f.addr(), f, f.size)
 			if qm.Debug() {
 				Log.LLog(lev, 0, prefix,
-					"         start check=%lx, end check= %x, %x\n",
+					"         start check=%x, end check= %x, %x\n",
 					f.check, f.end().check1, f.end().check2)
 
 			}
 		}
 		i++
 	}
-	Log.LLog(lev, 0, prefix, "dumping free list stats: %d\n")
+	Log.LLog(lev, 0, prefix, "dumping free list stats:\n")
 	for h, i := 0, 0; uint32(h) < qm.hashSize; h++ {
 		j := uint64(0)
 		for f := qm.freeH[h].head.nxtFree; f != &qm.freeH[h].head; f = f.nxtFree {
@@ -63,7 +63,7 @@ func (qm *QMalloc) dumpStatus() {
 			}
 			Log.LLog(lev, 0, prefix,
 				"hash= %3d. fragments no.: %5d\n"+
-					"\t\t bucket size: %9lu - %9ld (first %9lu)\n",
+					"\t\t bucket size: %9d - %9d (first %9d)\n",
 				h, j, qm.unHash(h), maxSz, qm.freeH[h].head.nxtFree.size)
 		}
 		if j != qm.freeH[h].no {
